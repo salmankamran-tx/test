@@ -15,4 +15,4 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::get('testing-branch', 'Controller@testing');
+Route::get('testing-branch', 'Controller@testing'); //  editing
