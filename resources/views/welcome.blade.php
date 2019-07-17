@@ -3,13 +3,24 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="csrf-token" content="{{ csrf_token() }}">
+
 
         <title>Laravel</title>
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
 
+        <!-- vue css  -->
+        <link href="/css/app.css" rel="stylesheet" type="text/css">
+
         <!-- Styles -->
+
+        <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" type="text/javascript"></script>
+        <script src="https://cdn.jsdelivr.net/npm/vue" type="text/javascript" ></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.18/vue.min.js" type="text/javascript"></script>
+
+
         <style>
             html, body {
                 background-color: #fff;
@@ -84,16 +95,76 @@
                     Laravel
                 </div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Docs</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://blog.laravel.com">Blog</a>
-                    <a href="https://nova.laravel.com">Nova</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
-                </div>
+              <div class="content" id="app">
+                <example-component> </example-component>
+              </div>
+
+              <div class="content" id="test">
+                @{{message}}
+              </div>
+
+
+              <div id="app2">
+                <span v-bind:title="message">
+                  Hover your mouse over me for a few seconds
+                  to see my dynamically bound title!
+                </span>
+              </div>
+
+              <div id="app3">
+                <ol>
+                  <li v-for = "todo in todos">
+                    @{{todo.text}}
+                  </li>
+                </ol>
+             </div>
+
+             <div id="app4">
+               @{{message}}
+                <input v-model = "message">
             </div>
+
+          </div>
         </div>
+
     </body>
+
+            <script type="text/javascript" src="/js/app.js"> </script>
+
+    <script>
+
+    var test = new Vue({
+      el: '#test',
+      data: {
+        message: 'Testing Vue!'
+      }
+    })
+
+    var app2 = new Vue({
+      el: '#app2',
+      data:{
+        message: 'you loaded this page' + new Date().toLocaleString()
+      }
+    })
+
+    var app3 = new Vue({
+        el: '#app3',
+        data: {
+          todos: [
+            { text: 'Learn LARAVEL' },
+            { text: 'Learn VUE' },
+            { text: 'Build something awesome' }
+          ]
+        }
+      })
+
+      var app4 = new Vue({
+        el: '#app4',
+        data:{
+        message: 'Hello Vue!'
+        }
+      })
+
+    </script>
+
 </html>
