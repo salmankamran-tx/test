@@ -15,9 +15,9 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-<<<<<<< HEAD
+
 Route::get('testing-branch', 'Controller@testing'); //  editing
-=======
+
 Route::get('testing-branch', 'Controller@testing');
 
 Auth::routes();
@@ -27,4 +27,3 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/', 'PostController@home');
 
 Route::resource('/posts', 'PostController');
->>>>>>> feature
