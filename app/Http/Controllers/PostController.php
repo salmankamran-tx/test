@@ -31,7 +31,9 @@ class PostController extends Controller
      */
     public function create()
     {
-        //
+        return view ('createPost',[
+        'posts' => Post::all()
+      ]);
     }
 
     /**
