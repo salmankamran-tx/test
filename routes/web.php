@@ -28,6 +28,10 @@ Route::get('/', 'PostController@home');
 
 Route::resource('/posts', 'PostController');
 
+// Route for delete and edit beacuse we could not tell laravel that we are doing delete request because we are using vue.
+Route::post('/deletePost/{id}', 'PostController@destroy');
+Route::post('/editPost/{id}', 'PostController@edit');
+
 // Route::get('/skills', function(){
 //
 //     return ['Laravel' , 'Vue' , 'Done'];

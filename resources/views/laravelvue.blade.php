@@ -12,7 +12,7 @@
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js" type="text/javascript"></script>
   <script src="https://cdn.jsdelivr.net/npm/vue" type="text/javascript" ></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/vue/1.0.18/vue.min.js" type="text/javascript"></script>
-  <script src="./js/main.js" type="text/javascript"></script>
+  <script src="/main.js" type="text/javascript"></script>
 
 
     <div class="container" id="test" >

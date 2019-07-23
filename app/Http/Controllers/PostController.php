@@ -21,7 +21,8 @@ class PostController extends Controller
 
     public function index()
     {
-        return Post::orderBy('id', 'DESC')->get();
+        $post = Post::all();
+        return $post;
     }
 
     /**
@@ -31,9 +32,7 @@ class PostController extends Controller
      */
     public function create()
     {
-        return view ('createPost',[
-        'posts' => Post::all()
-      ]);
+        return view ('createPost');
     }
 
     /**
@@ -44,7 +43,15 @@ class PostController extends Controller
      */
     public function store(Request $request)
     {
-        //
+
+      $posts = new Post();
+      $posts->title = $request->title;
+      $posts->body = $request->body;
+      $posts->save();
+
+      return $posts;
+
+
     }
 
     /**
@@ -64,9 +71,15 @@ class PostController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Request $request, $id)
     {
-        //
+        $post = Post::find($id);
+
+        $post->title = $request->get('val1');
+        $post->body = $request->get('val2');
+        $post->save();
+
+        return $post;
     }
 
     /**
@@ -89,6 +102,6 @@ class PostController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $post = Post::find($id)->delete();
     }
 }
