@@ -21,6 +21,7 @@ var test = new Vue({
    e_id: '',
    e_title: '',
    e_body: '',
+   search:''
    },
     mounted: function mounted(){
         this.getPosts();
@@ -66,11 +67,20 @@ var test = new Vue({
         var p_title = document.getElementById('e_title');
         var p_body = document.getElementById('e_body');
 
-        axios.post('/editPost/' + p_id.value,{ val1: p_title.value, val2: p_body.value})
+        axios.post('/editPost/' + p_id.value, { val1: p_title.value, val2: p_body.value})
           .then(function response(){
             _this.getPosts();
             _this.showModal= false;
           });
-      }
+      },
+      // computed: {
+      //   filteredPosts:function(){
+      //     var _this = this;
+      //     return _this.getPosts().filter((post)=>{
+      //       return post.title.match(this.search);
+      //
+      //     });
+      //   }
+      // }
   }
 });
