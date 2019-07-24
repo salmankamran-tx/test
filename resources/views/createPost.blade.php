@@ -52,6 +52,11 @@
     </div>
   </div>
 
+  <div class="field">
+  <label class="label">Search</label>
+    <input class="input is-success" type="text" placeholder="Search Posts" v-model="search">
+  </div>
+
 <table class="table" id="table">
 <thead class="thead-light">
   <tr>
@@ -62,7 +67,7 @@
   </tr>
 </thead>
   <tbody>
-  <tr v-for="post in posts">
+  <tr v-for="post of posts">
     <td>@{{post.id}}</td>
     <td>@{{post.title}}</td>
     <td>@{{post.body}}</td>
@@ -79,6 +84,7 @@
 <modal v-if="showModal" @close="showModal=false">
   <h3 slot="header">Edit Post</h3>
   <div slot="body">
+      <input type="hidden" disabled id="e_id" name="id" :value="this.e_id">
       <input class="input" type="text" name="title" id="e_title" :value="this.e_title"> <br><br>
       <textarea class="textarea" name="body" id="e_body" :value="this.e_body"></textarea>
   </div>

@@ -51782,7 +51782,8 @@ var test = new Vue({
     showModal: false,
     e_id: '',
     e_title: '',
-    e_body: ''
+    e_body: '',
+    search: ''
   },
   mounted: function mounted() {
     this.getPosts();
@@ -51840,7 +51841,16 @@ var test = new Vue({
 
         _this.showModal = false;
       });
-    }
+    } // computed: {
+    //   filteredPosts:function(){
+    //     var _this = this;
+    //     return _this.getPosts().filter((post)=>{
+    //       return post.title.match(this.search);
+    //
+    //     });
+    //   }
+    // }
+
   }
 });
 
