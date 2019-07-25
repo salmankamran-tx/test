@@ -67,7 +67,7 @@
   </tr>
 </thead>
   <tbody>
-  <tr v-for="post of posts">
+  <tr v-for="post in filteredPosts">
     <td>@{{post.id}}</td>
     <td>@{{post.title}}</td>
     <td>@{{post.body}}</td>
@@ -78,7 +78,6 @@
   </tr>
   </tbody>
 </table>
-
 
 <!--edited script for vue modal template -->
 <modal v-if="showModal" @close="showModal=false">

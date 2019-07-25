@@ -11,6 +11,7 @@ Vue.component('modal', {
   template: '#modal-template'
 })
 
+
 var test = new Vue({
   el: '#test',
   data: {
@@ -21,7 +22,7 @@ var test = new Vue({
    e_id: '',
    e_title: '',
    e_body: '',
-   search:''
+   search:'',
    },
     mounted: function mounted(){
         this.getPosts();
@@ -72,15 +73,22 @@ var test = new Vue({
             _this.getPosts();
             _this.showModal= false;
           });
-      },
-      // computed: {
-      //   filteredPosts:function(){
-      //     var _this = this;
-      //     return _this.getPosts().filter((post)=>{
-      //       return post.title.match(this.search);
-      //
-      //     });
-      //   }
-      // }
-  }
-});
+      }
+    },
+      computed: {
+        filteredPosts:function(){
+          var _this = this;
+           var f_posts = _this.posts;
+            return f_posts.filter((f_posts)=>{
+            return f_posts.title.toLowerCase().match(_this.search.toLowerCase());
+          });
+        }
+
+        // filteredPosts: function () {
+        //      var _this = this;
+        //      var f_posts= _this.posts[0]["title"];
+        //       let filter = new RegExp(_this.search, 'i')
+        //     return f_posts.filter(el => el.match(filter))
+        //  }
+      }
+  });
