@@ -51841,15 +51841,22 @@ var test = new Vue({
 
         _this.showModal = false;
       });
-    } // computed: {
-    //   filteredPosts:function(){
-    //     var _this = this;
-    //     return _this.getPosts().filter((post)=>{
-    //       return post.title.match(this.search);
-    //
-    //     });
-    //   }
-    // }
+    }
+  },
+  computed: {
+    filteredPosts: function filteredPosts() {
+      var _this = this;
+
+      var f_posts = _this.posts;
+      return f_posts.filter(function (f_posts) {
+        return f_posts.title.toLowerCase().match(_this.search.toLowerCase());
+      });
+    } // filteredPosts: function () {
+    //      var _this = this;
+    //      var f_posts= _this.posts[0]["title"];
+    //       let filter = new RegExp(_this.search, 'i')
+    //     return f_posts.filter(el => el.match(filter))
+    //  }
 
   }
 });

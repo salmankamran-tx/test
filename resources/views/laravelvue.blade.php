@@ -25,6 +25,7 @@
 
       <input id="input" type="text" v-model="newName">
        <button v-on:click="addName"> submit</button><br><br>
+       
 
     </div>
 
